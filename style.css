@@ -80,8 +80,8 @@ caption {
   display: grid;
   grid-template-rows: 1fr 6fr;
   grid-template-areas:
-    'logo',
-    'menu',;
+    'logo'
+    'menu';
 }
 
 #books {
@@ -94,4 +94,16 @@ caption {
   font-weight: 700;
   color: var(--main-color);
   margin-left: 2rem;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--table-color-even);
+  grid-area: logo;
+}
+
+#menu {
+  
 }
