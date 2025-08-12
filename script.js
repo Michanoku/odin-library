@@ -16,6 +16,11 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID()
 }
 
+// Prototype function to toggle read
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+}
+
 // Adds a book to the library
 function addBookToLibrary(title, author, pages, read) {
   const toAdd = new Book(title, author, pages, read);
@@ -78,7 +83,7 @@ function createLibrary() {
 // Toggle the book of "id" read or unread
 function toggleRead(id) {
   const book = library.find(book => book.id === id);
-  book.read = !book.read;
+  book.toggleRead();
   createLibrary();
   addEventListeners();
 }
