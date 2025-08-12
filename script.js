@@ -1,6 +1,7 @@
 // Initialize book array and library element
 const library = new Array();
 const libraryBody = document.querySelector('tbody');
+const form = document.querySelector('form');
 
 // Book creator
 function Book(title, author, pages, read) {
@@ -53,8 +54,25 @@ const initialBooks = [
   {title: 'Kitchen', author: 'Banana Yoshimoto' , pages: 226, read: false},
 ];
 
-initialBooks.forEach(book => addBookToLibrary(book.title, book.author, book.pages, book.read));
+// Function to empty and populate library
+function createLibrary() {
+  libraryBody.textContent = '';
+  library.forEach(book => {
+    libraryBody.appendChild(createBookTD(book));
+  });
+}
 
-library.forEach(book => {
-  libraryBody.appendChild(createBookTD(book));
+// Add initial books and display library
+initialBooks.forEach(book => addBookToLibrary(book.title, book.author, book.pages, book.read));
+createLibrary();
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(form);
+  console.log(form)
+  console.log(formData.get('book-read'))
+  addBookToLibrary(formData.get('book-title'), formData.get('book-author'), formData.get('book-pages'), formData.get('book-read') === "on");
+  form.reset();
+  createLibrary();
+  document.querySelector('#book-title').focus();
 });

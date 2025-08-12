@@ -18,13 +18,13 @@
         <div id="menu-title">Add new book</div>
         <form id="add">
             <label class="text-label" for="book-title">Title</label>
-            <input id="book-title" type="text" autofocus/>
+            <input id="book-title" name="book-title" type="text" autofocus required/>
             <label class="text-label" for="book-author">Author</label>
-            <input id="book-author" type="text"/>
+            <input id="book-author" name="book-author" type="text" required/>
             <label class="text-label" for="book-pages">Pages</label>
-            <input id="book-pages" min="1" type="number"/>
+            <input id="book-pages" name="book-pages" min="1" type="number" required/>
             <label id="check-label" for="book-read">Read</label>
-            <input id="book-read" type="checkbox"/>
+            <input id="book-read" name="book-read" type="checkbox"/>
         </form>
         <button type="submit" form="add">Add Book</button>
       </div>

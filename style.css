@@ -68,11 +68,19 @@ input[type="text"], input[type="number"] {
   font-size: 1.2rem;
   padding: 0.3rem 0.8rem;
   margin-bottom: 1rem;
+  -webkit-box-shadow: 2px 2px 5px 2px #4C2F3F;
+  box-shadow: 2px 2px 5px 2px #4C2F3F;
+  border: 2px solid transparent;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  border: 2px solid var(--accent-color);
 }
 
 input[type="checkbox"] {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  accent-color: var(--accent-color);
 }
 
 button {
@@ -83,6 +91,11 @@ button {
   border: 0;
   border-radius: 25px;
   color: var(--table-color-even);
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #FF3347;
 }
 
 label {
