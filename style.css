@@ -2,7 +2,8 @@
   font-size: 16px;
   --main-color: #6D435A;
   --accent-color: #FF6978;
-  --table-color: #FFFCF9;
+  --table-color-even: #FFFCF9;
+  --table-color-odd: #FFEBD6;
   --background-color: #B1EDE8;
   font-family: Arial, Helvetica, sans-serif;
   /*Reserve: #340068*/
@@ -14,8 +15,36 @@
   margin: 0;
 }
 
-table { 
-  border-collapse: collapse; 
-  border-spacing: 0;
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
 }
 
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+
+th {
+  background-color: var(--accent-color);
+  color: var(--table-color-even);
+}
+
+td {
+  text-align: center;
+  color: var(--main-color);
+}
+
+tr:nth-child(even) td {
+  background-color: var(--table-color-even);
+}
+
+tr:nth-child(odd) td {
+  background-color: var(--table-color-odd)
+}
+
+caption {
+  padding: 10px;
+}
