@@ -98,7 +98,8 @@ input[type="checkbox"] {
   background-color: #FF475A;
 }
 
-.manage-button {
+.toggle-button,
+.delete-button {
   display: block;
   padding: 0.4rem 0.5rem;
   background-color: var(--main-color);
@@ -109,7 +110,8 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.manage-button:active {
+.toggle-button:active,
+.delete-button:active {
    background-color: #4C2F3F;
 }
 

@@ -44,8 +44,8 @@ function createBookTD(book) {
   elements.readData.textContent = book.read ? '✓' : '';
   toggleButton.dataset.id = book.id;
   deleteButton.dataset.id = book.id;
-  toggleButton.classList.add('manage-button');
-  deleteButton.classList.add('manage-button');
+  toggleButton.classList.add('toggle-button');
+  deleteButton.classList.add('delete-button');
   toggleButton.textContent = 'Toggle Read';
   deleteButton.textContent = 'Delete Book';
   elements.toggleRead.appendChild(toggleButton);
@@ -75,9 +75,43 @@ function createLibrary() {
   });
 }
 
+// Toggle the book of "id" read or unread
+function toggleRead(id) {
+  const book = library.find(book => book.id === id);
+  book.read = !book.read;
+  createLibrary();
+  addEventListeners();
+}
+
+// Delete the book of "id" from the library
+function deleteBook(id) {
+  const book = library.find(book => book.id === id);
+  const index = library.indexOf(book);
+  library.splice(index, 1);
+  createLibrary();
+  addEventListeners();
+}
+
+// Add Event Listeners for the buttons in the table
+function addEventListeners() {
+  const toggleButtons = document.querySelectorAll('.toggle-button');
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      toggleRead(button.dataset.id);
+    });
+  });
+  const deleteButtons = document.querySelectorAll('.delete-button');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      deleteBook(button.dataset.id);
+    });
+  });
+}
+
 // Add initial books and display library
 initialBooks.forEach(book => addBookToLibrary(book.title, book.author, book.pages, book.read));
 createLibrary();
+addEventListeners();
 
 form.addEventListener('submit', (event) => {
   // Get the form and prevent the default behavior
