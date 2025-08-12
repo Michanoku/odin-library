@@ -16,10 +16,6 @@
 }
 
 body { 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: var(--background-color);
 }
 
@@ -54,13 +50,48 @@ tr:nth-child(odd) td {
 }
 
 caption {
-  padding: 10px;
+  padding: 10px 0px;
+  text-align: start;
   color: var(--main-color);
 }
 
+#container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 1fr 6fr;
+  grid-template-areas: 
+    'sidebar navbar'
+    'sidebar books';
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  grid-area: navbar;
+  background-color: var(--table-color-even);
+  -webkit-box-shadow: 5px 5px 15px 5px #949494; 
+  box-shadow: 5px 5px 15px 5px #949494; 
+}
+
+#sidebar {
+  grid-area: sidebar;
+  background-color: var(--main-color);
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+  grid-template-areas:
+    'logo',
+    'menu',;
+}
+
+#books {
+  grid-area: books;
+  padding: 1rem 2rem;
+}
+
 #title {
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--main-color);
-  margin-bottom: 50px;
+  margin-left: 2rem;
 }
