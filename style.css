@@ -28,7 +28,7 @@ table {
 
 td, th {
   border: 1px solid var(--main-color);
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
 }
 
 th {
@@ -50,9 +50,49 @@ tr:nth-child(odd) td {
 }
 
 caption {
-  padding: 10px 0px;
+  padding: 0.5rem 0rem;
   text-align: start;
   color: var(--main-color);
+}
+
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+}
+
+input[type="text"], input[type="number"] {
+  background-color: var(--table-color-even);
+  border-radius: 25px;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+}
+
+input[type="checkbox"] {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  display: block;
+  padding: 0.5rem 3rem;
+  background-color: var(--accent-color);
+  font-size: 1.2rem;
+  border: 0;
+  border-radius: 25px;
+  color: var(--table-color-even);
+}
+
+label {
+  color: var(--table-color-even);
+}
+
+.text-label {
+  display: block;
+  text-align: start;
+  padding: 0.2rem 1rem;
 }
 
 #container {
@@ -105,5 +145,19 @@ caption {
 }
 
 #menu {
-  
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+#menu-title {
+  color: var(--table-color-even);
+  width: 75%;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--table-color-even);
+  margin-bottom: 1.5rem;
 }
