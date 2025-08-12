@@ -15,15 +15,23 @@
   margin: 0;
 }
 
+body { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
 table {
   border-collapse: collapse;
-  border: 2px solid rgb(200,200,200);
+  border: 2px solid var(--main-color);
   letter-spacing: 1px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 td, th {
-  border: 1px solid rgb(190,190,190);
+  border: 1px solid var(--main-color);
   padding: 10px 20px;
 }
 
@@ -47,4 +55,12 @@ tr:nth-child(odd) td {
 
 caption {
   padding: 10px;
+  color: var(--main-color);
+}
+
+#title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--main-color);
+  margin-bottom: 50px;
 }

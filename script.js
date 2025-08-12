@@ -1,5 +1,3 @@
-const { createElement } = require("react");
-
 const library = new Array();
 const libraryBody = document.querySelector('tbody');
 
@@ -9,7 +7,7 @@ function Book(title, author, pages) {
   }
   this.title = title,
   this.author = author,
-  this.page = pages,
+  this.pages = pages,
   this.id = crypto.randomUUID()
 }
 
@@ -19,10 +17,10 @@ function addBookToLibrary(title, author, pages) {
 };
 
 function createBookTD(book) {
-  const row = createElement('tr');
-  const titleData = createElement('td');
-  const authorData = createElement('td');
-  const pageData = createElement('td');
+  const row = document.createElement('tr');
+  const titleData = document.createElement('td');
+  const authorData = document.createElement('td');
+  const pageData = document.createElement('td');
   titleData.textContent = book.title;
   authorData.textContent = book.author;
   pageData.textContent = book.pages;
