@@ -2,6 +2,7 @@
 const library = new Array();
 const libraryBody = document.querySelector('tbody');
 const form = document.querySelector('form');
+const titleField = document.querySelector('#book-title');
 
 // Book creator
 function Book(title, author, pages, read) {
@@ -25,23 +26,35 @@ function addBookToLibrary(title, author, pages, read) {
 function createBookTD(book) {
   // Create needed elements
   const row = document.createElement('tr');
-  const titleData = document.createElement('td');
-  const authorData = document.createElement('td');
-  const pageData = document.createElement('td');
-  const readData = document.createElement('td');
+  const elements = {
+    titleData: document.createElement('td'),
+    authorData: document.createElement('td'),
+    pageData: document.createElement('td'),
+    readData: document.createElement('td'),
+    toggleRead: document.createElement('td'),
+    deleteBook: document.createElement('td'),
+  };
+  const toggleButton = document.createElement('button');
+  const deleteButton = document.createElement('button');
 
   // Populate empty elements with data
-  titleData.textContent = book.title;
-  authorData.textContent = book.author;
-  pageData.textContent = book.pages;
-  readData.textContent = book.read ? '✓' : '';
+  elements.titleData.textContent = book.title;
+  elements.authorData.textContent = book.author;
+  elements.pageData.textContent = book.pages;
+  elements.readData.textContent = book.read ? '✓' : '';
+  toggleButton.dataset.id = book.id;
+  deleteButton.dataset.id = book.id;
+  toggleButton.classList.add('manage-button');
+  deleteButton.classList.add('manage-button');
+  toggleButton.textContent = 'Toggle Read';
+  deleteButton.textContent = 'Delete Book';
+  elements.toggleRead.appendChild(toggleButton);
+  elements.deleteBook.appendChild(deleteButton);
 
   // Append the elements
-  row.appendChild(titleData);
-  row.appendChild(authorData);
-  row.appendChild(pageData);
-  row.appendChild(readData);
-
+  for (const key in elements) {
+    row.appendChild(elements[key]);
+  }
   return row;
 }
 
@@ -67,12 +80,15 @@ initialBooks.forEach(book => addBookToLibrary(book.title, book.author, book.page
 createLibrary();
 
 form.addEventListener('submit', (event) => {
+  // Get the form and prevent the default behavior
   event.preventDefault();
   const formData = new FormData(form);
-  console.log(form)
-  console.log(formData.get('book-read'))
+
+  // Add the book and recreate the library on the page
   addBookToLibrary(formData.get('book-title'), formData.get('book-author'), formData.get('book-pages'), formData.get('book-read') === "on");
-  form.reset();
   createLibrary();
-  document.querySelector('#book-title').focus();
+
+  // Reset the form and focus back on the title field
+  form.reset();
+  titleField.focus();
 });

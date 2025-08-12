@@ -83,7 +83,7 @@ input[type="checkbox"] {
   accent-color: var(--accent-color);
 }
 
-button {
+#add-button {
   display: block;
   padding: 0.5rem 3rem;
   background-color: var(--accent-color);
@@ -94,8 +94,23 @@ button {
   cursor: pointer;
 }
 
-button:active {
-  background-color: #FF3347;
+#add-button:active {
+  background-color: #FF475A;
+}
+
+.manage-button {
+  display: block;
+  padding: 0.4rem 0.5rem;
+  background-color: var(--main-color);
+  font-size: 0.8rem;
+  border: 0;
+  border-radius: 25px;
+  color: var(--table-color-even);
+  cursor: pointer;
+}
+
+.manage-button:active {
+   background-color: #4C2F3F;
 }
 
 label {
