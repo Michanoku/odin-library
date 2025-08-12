@@ -1,0 +1,15 @@
+:root {
+  font-size: 16px;
+  --main-color: #6D435A;
+  --accent-color: #FF6978;
+  --table-color: #FFFCF9;
+  --background-color: #B1EDE8;
+  font-family: Arial, Helvetica, sans-serif;
+  /*Reserve: #340068*/
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
