@@ -5,20 +5,19 @@ const form = document.querySelector('form');
 const titleField = document.querySelector('#book-title');
 
 // Book creator
-function Book(title, author, pages, read) {
-  if (!new.target) {
-    return Error("Please create books with NEW.")
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.read = read,
+    this.id = crypto.randomUUID()
   }
-  this.title = title,
-  this.author = author,
-  this.pages = pages,
-  this.read = read,
-  this.id = crypto.randomUUID()
-}
 
-// Prototype function to toggle read
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
+  // Prototype function to toggle read
+  toggleRead() {
+    this.read = !this.read;
+  }
 }
 
 // Adds a book to the library
@@ -126,6 +125,7 @@ form.addEventListener('submit', (event) => {
   // Add the book and recreate the library on the page
   addBookToLibrary(formData.get('book-title'), formData.get('book-author'), formData.get('book-pages'), formData.get('book-read') === "on");
   createLibrary();
+  addEventListeners();
 
   // Reset the form and focus back on the title field
   form.reset();
